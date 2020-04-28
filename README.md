@@ -22,7 +22,7 @@ _"A locally trend-based change-point detection technique"_
 
 Access to the real datasets is provided [here](). It contains:
 
- - [__Wadi As-Sirham case study__](https://github.com/mmontesinosanmartin/changepoint_article/tree/master/realdata/crops/data): Transformation of a desertic area into irrigated croplands. The analysis focuses on three fields that start with the agricultural activity at the beginning (`imgs_roi_str.RData`), middle (`imgs_roi_mid.RData`), and end (`imgs_roi_end.RData`) of the time series. Each `RData` file contains a `RasterStack` with the annual NDVI image composites over the period 1986-2019.  
+ - [__Wadi As-Sirham case study__](https://github.com/mmontesinosanmartin/changepoint_article/tree/master/realdata/crops/data): Detecting the transformation of bare land into cultivated areas from NDVI time-series (1986-2019). The analysis focuses on three agricultural fields where farmers start growing crops in 1991 (`imgs_roi_str.RData`), 2001 (`imgs_roi_mid.RData`), and 2013 (`imgs_roi_end.RData`), i.e. at the beginning, middle, and end of the obervation period. `RData` files contain `RasterStack`s with annual composites of the maximum NDVI derived from surface reflectance satellite imagery captured by Landsat 4-8. 
 
  - [__Zaca wildfire case study__]()
 
