@@ -9,7 +9,7 @@ _"A locally trend-based change-point detection technique"_
 
  - [Package installation](#Package-installation)
  - [Simulations](#Simulations)
- - [Real data](#Real-data)
+ - [Real case-study](#Real-case-study)
  - [References](#References)
 
 # Package installation
@@ -18,14 +18,40 @@ _"A locally trend-based change-point detection technique"_
 # Simulations 
 
 
-# Real data
+# Real case-study
 
-Access to the real datasets is provided [here](). It contains:
+## Dataset
 
- - [__Wadi As-Sirham case study__](https://github.com/mmontesinosanmartin/changepoint_article/tree/master/realdata/crops/data): Detecting the transformation of bare land into cultivated areas from NDVI time-series (1986-2019). The analysis focuses on three agricultural fields where farmers start growing crops in 1991 (`imgs_roi_str.RData`), 2001 (`imgs_roi_mid.RData`), and 2013 (`imgs_roi_end.RData`), i.e. at the beginning, middle, and end of the obervation period. `RData` files contain `RasterStack`s with annual composites of the maximum NDVI derived from surface reflectance satellite imagery captured by Landsat 4-8. 
+The rela case study aims to detect the transformation of bare land into cultivated areas from Landsat 4-8 NDVI time-series (1986-2019). 
 
- - [__Zaca wildfire case study__]()
+<p align="center">
+  <img align="center" width="400" src="./Real_study/graphs/wadi_as_sirham.png" alt="Itoiz reservoir">
+  <p align="center"> Figure 1: Wadi As-Sirham valley in Saudi Arabia. The graph shows the maximum value composite (MVC) of the region in 2019 from Landsat 7-8 scenes. The fields used in the analysis are framed within red rectangles. The location of the region  </p>
+</p>
 
-The `R` code to reproduce the analysis is provided [here](). 
+The data is available
+[here](https://github.com/mmontesinosanmartin/changepoint_article/tree/master/Real_study/data)
+The folder has the following files:
+
+ - `field1_7.RData`: the dataset for the agricultural beginning it activity in 1992.
+ - `field2_21.RData`: the dataset for the agricultural beginning it activity in 2006.
+ - `field3_29.RData`: the dataset for the agricultural beginning it activity in 2014.
+
+Each `.RData` contains:
+
+ - `sample.roi`: a `sf` delimiting the boundaries of the study area for each field.
+ - `sample.val`: a `RasterBrick` of the 34-year time series of the NDVI.
+ - `this.data`: `sample.val` turned into a `matrix`.
+
+## R Code
+
+The analysis and results of the real case study can be reproduced using the
+`R` code avialable 
+[here]().
+The folder contains:
+
+  - `1_lacpd_wadi.R`: applies the LACPD procedure to the time-series of NDVI imagery.
+  - `2_graphs_wadi.R`: retrieves, organizes, and represents the results of the analysis.
+
 
 # References
