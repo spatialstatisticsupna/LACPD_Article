@@ -1,11 +1,12 @@
 Package: Scp
 Type: Package
-Title: Locally trend-based change-point detection
-Version: 0.1.7
-Author: Authors@R: person("Mehdi", "Moradi", email = "m2.moradi@yahoo.com",
-  role = c("aut", "cre"))
+Title: Locally Adaptive change-point detection
+Version: 0.2.0
+Author: Authors@R: c(person("Mehdi", "Moradi", email = "m2.moradi@yahoo.com",
+  role = c("aut", "cre")),
+  person("Manuel", "Montesino-SanMartin", role = "ctb"))
 Maintainer: Mehdi Moradi <m2.moradi@yahoo.com>
-Description: Locally change-point detection using trend-detection methods and subsampling.
+Description: Locally adaptive change-point detection.
 Depends: R (>= 3.3.0), trend, modifiedmk
 License: GPL (>= 2)
 Encoding: UTF-8

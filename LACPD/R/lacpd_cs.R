@@ -1,5 +1,5 @@
 #' @export
-Re_cs <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,history=FALSE,...){
+lacpd_cs <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,history=FALSE,...){
 
   if(anyNA(x)) stop("there is NA in your data")
 
@@ -15,7 +15,7 @@ Re_cs <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,histo
     out.list.mag <- list()
 
     for (i in 1:length(k)) {
-      out.pre <- Re_cs(x=x,m=m,k=k[i],blow=blow,bup=(1-blow),leave=leave,adjust=adjust,...)
+      out.pre <- lacpd_cs(x=x,m=m,k=k[i],blow=blow,bup=(1-blow),leave=leave,adjust=adjust,...)
       out.list.z[[i]] <- attr(out.pre,"zs")
       out.list.mag[[i]] <- attr(out.pre,"mags")
 
@@ -114,7 +114,7 @@ Re_cs <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,histo
                       mag=mag,
                       p=p)
 
-    class(out.final) <- c("list","re.cs")
+    class(out.final) <- c("list","lacpd.cs")
     attr(out.final,"zs") <- zs
     attr(out.final,"mags") <- mags
     attr(out.final,"ps") <- ps
@@ -363,7 +363,7 @@ Re_cs <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,histo
                     mag=mag,
                     p=p)
 
-  class(out.final) <- c("list","re.cs")
+  class(out.final) <- c("list","lacpd.cs")
   attr(out.final,"zs") <- zs
   attr(out.final,"mags") <- mags
   attr(out.final,"ps") <- ps
@@ -373,8 +373,8 @@ Re_cs <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,histo
 }
 
 #' @export
-print.re.cs <- function(x){
-  cat("Subsample Cox-Stuart \n");
-  cat("cp:", " ", paste0(x$cp), ", Z=",paste0(x$z),", magnitude=",paste0(x$mag),
-      ", p.value=",paste0(x$p),"\n");
+print.lacpd.cs <- function(x,round=5){
+  cat("LACPD Cox-Stuart \n");
+  cat("cp:", " ", paste0(x$cp), ", Z=",paste0(round(x$z,round)),", magnitude=",paste0(round(x$mag,round)),
+      ", p.value=",paste0(round(x$p,round)),"\n");
 }

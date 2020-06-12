@@ -1,5 +1,5 @@
 #' @export
-Re_mmkh <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,history=FALSE,...){
+lacpd_mmkh <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,history=FALSE,...){
 
     if(anyNA(x)) stop("there is NA in your data")
 
@@ -15,7 +15,7 @@ Re_mmkh <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,his
       out.list.mag <- list()
 
       for (i in 1:length(k)) {
-        out.pre <- Re_mmkh(x=x,m=m,k=k[i],blow=blow,bup=(1-blow),leave=leave,adjust=adjust,...)
+        out.pre <- lacpd_mmkh(x=x,m=m,k=k[i],blow=blow,bup=(1-blow),leave=leave,adjust=adjust,...)
         out.list.z[[i]] <- attr(out.pre,"zs")
         out.list.mag[[i]] <- attr(out.pre,"mags")
 
@@ -114,7 +114,7 @@ Re_mmkh <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,his
                         mag=mag,
                         p=p)
 
-      class(out.final) <- c("list","re.mmkh")
+      class(out.final) <- c("list","lacpd.mmkh")
       attr(out.final,"zs") <- zs
       attr(out.final,"mags") <- mags
       attr(out.final,"ps") <- ps
@@ -362,7 +362,7 @@ Re_mmkh <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,his
                       mag=mag,
                       p=p)
 
-    class(out.final) <- c("list","re.mmkh")
+    class(out.final) <- c("list","lacpd.mmkh")
     attr(out.final,"zs") <- zs
     attr(out.final,"mags") <- mags
     attr(out.final,"ps") <- ps
@@ -371,8 +371,8 @@ Re_mmkh <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,his
 }
 
 #' @export
-print.re.mmkh <- function(x){
-  cat("Subsample mmkh \n");
-  cat("cp:", " ", paste0(x$cp), ", Z=",paste0(x$z),", magnitude=",paste0(x$mag),
-      ", p.value=",paste0(x$p),"\n");
+print.lacpd.mmkh <- function(x,round=5){
+  cat("LACPD mmkh \n");
+  cat("cp:", " ", paste0(x$cp), ", Z=",paste0(round(x$z,round)),", magnitude=",paste0(round(x$mag,round)),
+      ", p.value=",paste0(round(x$p,round)),"\n");
 }
