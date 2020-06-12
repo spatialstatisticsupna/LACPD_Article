@@ -1,4 +1,4 @@
-Package: Scp
+Package: LACPD
 Type: Package
 Title: Locally Adaptive change-point detection
 Version: 0.2.0
