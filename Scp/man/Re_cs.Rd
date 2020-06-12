@@ -6,11 +6,12 @@ Locally change-point detection using the Cox-Stuart test
 }
 
 \description{
-Locally change-point detection using after accommodating the Cox-Stuart test in LACPD procedure
+Locally change-point detection after accommodating the Cox-Stuart test in LACPD procedure
 }
 
 \usage{
-Re_cs(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE, adjust= FALSE,history=FALSE,...)
+Re_cs(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,
+                        history=FALSE,...)
 }
 
 \arguments{
@@ -97,7 +98,7 @@ attr(,"allps"): a list which retrieves the obtained p-values at the time-periods
 }
 
 \seealso{
-\link[trend]{ck.test}, \link[stats]{p.adjust}
+\link[trend]{cs.test}, \link[stats]{p.adjust}
 }
 
 \references{
@@ -106,7 +107,7 @@ Moradi, M., Montesino-SanMartin, M., Ugarte, M. D., and Militino, A. F. (2020). 
 
 \examples{
 x <- rnorm(300)
-Z <- Re_cs(x,m=50,k=10)
+Z <- Re_cs(x,m=50,k=c(3:5))
 plot(Z$s,attr(Z,"zs"),type="l",ylab = "Z",xlab = "time")
 plot(Z$s,attr(Z,"mags"),type="l",ylab = "Z",xlab = "time")
 }
