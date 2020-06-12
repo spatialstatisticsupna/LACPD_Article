@@ -22,11 +22,11 @@ _"A locally trend-based change-point detection technique"_
 
 ## Dataset
 
-The real case study aims to detect the transformation of bare land into cultivated areas in the Wadi As-Sirham valley, Saudi Arabia (Figure 1). The detection is based on a time-series of yearly NDVI scenes obtained from Landsat 4-8 satellites Collection 1 Level 2 surface reflectance imagery () plus the application of the maximum value compositing technique on a yearly basis. 
+The real case study aims to detect the transformation of bare land into cultivated areas in the Wadi As-Sirham valley, Saudi Arabia (Figure 1). The detection is based on a time-series of yearly NDVI scenes obtained from Landsat 4-8 satellites Collection 1 Level 2 surface reflectance imagery (U.S. Geological Survery, 2020) plus the application of the maximum value compositing technique (Holben, 1986) on a yearly basis. 
 
 <p align="center">
   <img align="center" width="400" src="./Real_study/graphs/wadi_as_sirham.png" alt="Itoiz reservoir">
-  <p align="center"> Figure 1: Wadi As-Sirham valley in Saudi Arabia. The graph shows the maximum value composite (MVC) of the region in 2019 from Landsat 7-8 scenes. The fields used in the analysis are framed within red rectangles: Field 1 corresponds to the one on top, Field 2 is located on the middle-left hand side, and the Field 3 is at the bottom-right. The graph on the top-right shows the location of the valley within Saudi Arabia. </p>
+  <p align="center"> Figure 1: Wadi As-Sirham valley in Saudi Arabia. The graph shows the maximum value composite (MVC) for the region in 2019 from Landsat 7-8 scenes. The fields used in the analysis are framed by red rectangles: Field 1 is located on top, Field 2 is in the middle-left hand side, and the Field 3 is placed at the bottom-right. The smaller graph on the top-right corner shows the location of the valley within Saudi Arabia. </p>
 </p>
 
 The data is available
@@ -39,9 +39,9 @@ The folder has the following files:
 
 Each `.RData` contains:
 
- - `sample.roi`: a `sf` delimiting the boundaries of the study area for each field.
- - `sample.val`: a `RasterBrick` of the 34-year time series of the NDVI.
- - `this.data`: `sample.val` turned into a `matrix`.
+ - `sample.roi`: a `sf` delimiting the boundaries of the study area for each field (red rectangles in Figure 1).
+ - `sample.val`: a `RasterBrick` of 34 layers with the NDVI time series.
+ - `this.data`: a `matrix` with the values from `sample.val`. Rows and columns represent pixels and years.
 
 ## R Code
 
@@ -50,8 +50,16 @@ The analysis and results of the real case study can be reproduced using the
 [here](https://github.com/mmontesinosanmartin/changepoint_article/tree/master/Real_study/r).
 The folder contains the following sequence of scripts:
 
-  - `1_lacpd_wadi.R`: applies the LACPD procedure to the time-series of NDVI images.
+  - `1_lacpd_wadi.R`: applies the LACPD procedure (Moradi et al., 2020) to the time-series of NDVI images.
   - `2_graphs_wadi.R`: collects, organizes, and represents the results of the analysis.
 
 
 # References
+
+Holben, B.N. (1986). _Characteristics of maximum-value composite images from temporal AVHRR data_
+International journal of remote sensing, __7(11)__, 1417-1434 pp. Taylor $\&$ Francis.
+
+U.S. Geological Survey (2020). _Landsat Level- 2 Surface Reflectance Science Product_
+\url{https://www.usgs.gov/land-resources/nli/landsat/landsat-collection-1-surface-reflectance}
+
+Moradi et al. (2020). _Computer and Statistics_. (under review).
