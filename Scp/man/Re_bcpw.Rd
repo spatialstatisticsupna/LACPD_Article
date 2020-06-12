@@ -61,7 +61,7 @@ If \code{k} is a vector of numbers, then the function returns a result based on 
 
 
 \author{
-Mehdi Moradi \email{m2.moradi@yahoo.com}, Manuel Montesino-SanMartin \email{montesino.upna@gmail.com}
+Mehdi Moradi \email{m2.moradi@yahoo.com}, Manuel Montesino-SanMartin \email{manuel.montesino@unavarra.es}
 }
 
 \value{
