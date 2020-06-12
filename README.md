@@ -30,7 +30,7 @@ The real case study aims to detect the transformation of bare land into cultivat
 </p>
 
 The data is available
-[here](https://github.com/mmontesinosanmartin/changepoint_article/tree/master/Real_study/data)
+[here](https://github.com/mmontesinosanmartin/changepoint_article/tree/master/Real_study/data).
 The folder has the following files:
 
  - `field1_7.RData`: the dataset for the agricultural field beginning its activity in 1992.
