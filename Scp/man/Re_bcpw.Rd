@@ -6,7 +6,7 @@ Locally change-point detection using the bcpw approach
 }
 
 \description{
-Locally change-point detection using after accommodating the bcpw approach in LACPD procedure
+Locally change-point detection after accommodating the bcpw approach in LACPD procedure
 }
 
 \usage{

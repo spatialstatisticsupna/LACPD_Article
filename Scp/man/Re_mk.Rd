@@ -6,7 +6,7 @@ Locally change-point detection using the Mann-Kendall test
 }
 
 \description{
-Locally change-point detection using after accommodating the Mann-Kendall test in LACPD procedure
+Locally change-point detection after accommodating the Mann-Kendall test in LACPD procedure
 }
 
 \usage{
