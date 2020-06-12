@@ -26,7 +26,7 @@ The real case study aims to detect the transformation of bare land into cultivat
 
 <p align="center">
   <img align="center" width="400" src="./Real_study/graphs/wadi_as_sirham.png" alt="Itoiz reservoir">
-  <p align="center"> Figure 1: Wadi As-Sirham valley in Saudi Arabia. The graph shows the maximum value composite (MVC) of the region in 2019 from Landsat 7-8 scenes. The fields used in the analysis are framed within red rectangles. The location of the region  </p>
+  <p align="center"> Figure 1: Wadi As-Sirham valley in Saudi Arabia. The graph shows the maximum value composite (MVC) of the region in 2019 from Landsat 7-8 scenes. The fields used in the analysis are framed within red rectangles: Field 1 corresponds to the one on top, Field 2 is located on the middle-left hand side, and the Field 3 is at the bottom-right. The graph on the top-right shows the location of the valley within Saudi Arabia. </p>
 </p>
 
 The data is available
