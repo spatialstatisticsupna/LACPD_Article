@@ -1,5 +1,5 @@
 #' @export
-Re_mk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,history=FALSE,...){
+lacpd_mmky <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,history=FALSE,...){
 
   if(anyNA(x)) stop("there is NA in your data")
 
@@ -9,15 +9,13 @@ Re_mk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,histo
   b <- round(bup*n)
   s <- seq(a,b,by=1)
 
-  ############### if k contains several values
-
   if(length(k)>1){
 
     out.list.z <- list()
     out.list.mag <- list()
 
     for (i in 1:length(k)) {
-      out.pre <- Re_mk(x=x,m=m,k=k[i],blow=blow,bup=(1-blow),leave=leave,adjust=adjust,...)
+      out.pre <- lacpd_mmky(x=x,m=m,k=k[i],blow=blow,bup=(1-blow),leave=leave,adjust=adjust,...)
       out.list.z[[i]] <- attr(out.pre,"zs")
       out.list.mag[[i]] <- attr(out.pre,"mags")
 
@@ -91,6 +89,8 @@ Re_mk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,histo
       out.hist <- do.call(rbind,out.hist)
 
     }
+
+
     cp <- s[which.max(zs)]
     mag <- mags[which.max(zs)]
     z <- max(zs)
@@ -114,7 +114,7 @@ Re_mk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,histo
                       mag=mag,
                       p=p)
 
-    class(out.final) <- c("list","re.mk")
+    class(out.final) <- c("list","lacpd.mmky")
     attr(out.final,"zs") <- zs
     attr(out.final,"mags") <- mags
     attr(out.final,"ps") <- ps
@@ -127,9 +127,7 @@ Re_mk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,histo
     }
 
     return(out.final)
-   }
-
-
+  }
 
   low <- ceiling(n/k)
   up <- floor(n-(n/k))
@@ -139,9 +137,6 @@ Re_mk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,histo
   low1 <- which(s==low)
   up1 <- which(s==up)
 
-
-
-  ############### if k>2, then subsampling is done on the first and last part of x
 
   if(k==2){
 
@@ -169,8 +164,8 @@ Re_mk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,histo
           mag[j] <- abs(mean(znew[(floor(zlen/2)+1):zlen]) - mean(znew[1:floor(zlen/2)]))
         }
 
-        mk <- mk.test(znew)
-        zs[j] <- abs(as.numeric(mk$statistic))
+        mk <- mmky(znew)
+        zs[j] <- abs(as.vector(mk[1]))
 
       }
 
@@ -210,8 +205,8 @@ Re_mk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,histo
           mag[j] <- abs(mean(znew[(floor(zlen/2)+1):zlen]) - mean(znew[1:floor(zlen/2)]))
         }
 
-        mk <- mk.test(znew)
-        zs[j] <- abs(as.numeric(mk$statistic))
+        mk <- mmky(znew)
+        zs[j] <- abs(as.vector(mk[1]))
 
       }
 
@@ -254,8 +249,8 @@ Re_mk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,histo
           mag[j] <- abs(mean(znew[(floor(zlen/2)+1):zlen]) - mean(znew[1:floor(zlen/2)]))
         }
 
-        mk <- mk.test(znew)
-        zs[j] <- abs(as.numeric(mk$statistic))
+        mk <- mmky(znew)
+        zs[j] <- abs(as.vector(mk[1]))
 
       }
 
@@ -293,8 +288,8 @@ Re_mk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,histo
         mag_m[j] <- abs(mean(znew[(floor(zlen/2)+1):zlen]) - mean(znew[1:floor(zlen/2)]))
       }
 
-      mk <- mk.test(znew)
-      zs.middle[j] <- abs(as.numeric(mk$statistic))
+      mk <- mmky(znew)
+      zs.middle[j] <- abs(as.vector(mk[1]))
 
     }
     zs.middle <- zs.middle[(low1+1):(up1-1)]
@@ -320,8 +315,8 @@ Re_mk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,histo
           mag[j] <- abs(mean(znew[(floor(zlen/2)+1):zlen]) - mean(znew[1:floor(zlen/2)]))
         }
 
-        mk <- mk.test(znew)
-        zs[j] <- abs(as.numeric(mk$statistic))
+        mk <- mmky(znew)
+        zs[j] <- abs(as.vector(mk[1]))
       }
       return(list(zs=zs[up1:length(s)],mag=mag[up1:length(s)]))
     })
@@ -365,18 +360,17 @@ Re_mk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,histo
                     mag=mag,
                     p=p)
 
-  class(out.final) <- c("list","re.mk")
+  class(out.final) <- c("list","lacpd.mmky")
   attr(out.final,"zs") <- zs
   attr(out.final,"mags") <- mags
   attr(out.final,"ps") <- ps
-
 
   return(out.final)
 }
 
 #' @export
-print.re.mk <- function(x){
-  cat("Subsample Mann-Kendall \n");
-  cat("cp:", " ", paste0(x$cp), ", Z=",paste0(x$z),", magnitude=",paste0(x$mag),
-      ", p.value=",paste0(x$p),"\n");
+print.lacpd.mmky <- function(x,round=5){
+  cat("LACPD mmky \n");
+  cat("cp:", " ", paste0(x$cp), ", Z=",paste0(round(x$z,round)),", magnitude=",paste0(round(x$mag,round)),
+      ", p.value=",paste0(round(x$p,round)),"\n");
 }

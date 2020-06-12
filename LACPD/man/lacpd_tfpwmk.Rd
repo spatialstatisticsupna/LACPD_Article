@@ -1,16 +1,16 @@
-\name{Re_mmky}
-\alias{Re_mmky}
+\name{lacpd_tfpwmk}
+\alias{lacpd_tfpwmk}
 
 \title{
-Locally change-point detection using the mmky approach
+Locally change-point detection using the tfpwmk approach
 }
 
 \description{
-Locally change-point detection after accommodating the mmky approach in LACPD procedure
+Locally change-point detection after accommodating the tfpwmk approach in LACPD procedure
 }
 
 \usage{
-Re_mmky(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE, adjust= FALSE,
+lacpd_tfpwmk(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE, adjust= FALSE,
                           history=FALSE,...)
 }
 
@@ -45,7 +45,7 @@ arguments passed to \link[stats]{p.adjust}
 }
 
 \details{
-This technique accommodates the \link[modifiedmk]{mmky} trend detection method in the LACPD procedure of Moradi et al. (2020) to look for potential change-points in the numerical vector x.
+This technique accommodates the \link[modifiedmk]{tfpwmk} trend detection method in the LACPD procedure of Moradi et al. (2020) to look for potential change-points in the numerical vector x.
 
 In the tails of \code{x}, since there are not enough data points before/after the target points, the method uses sub-sampling, wherein it moderates the effect of sub-sampling by iteration.
 
@@ -97,7 +97,7 @@ attr(,"allps"): a list which retrieves the obtained p-values at the time-periods
 }
 
 \seealso{
-\link[modifiedmk]{mmky}, \link[stats]{p.adjust}
+\link[modifiedmk]{tfpwmk}, \link[stats]{p.adjust}
 }
 
 \references{
@@ -106,7 +106,7 @@ Moradi, M., Montesino-SanMartin, M., Ugarte, M. D., and Militino, A. F. (2020). 
 
 \examples{
 x <- rnorm(100)
-Z <- Re_mmky(x,m=50,k=c(3:5))
+Z <- lacpd_tfpwmk(x,m=50,k=c(3:5))
 plot(Z$s,attr(Z,"zs"),type="l",ylab = "Z",xlab = "time")
 plot(Z$s,attr(Z,"mags"),type="l",ylab = "Z",xlab = "time")
 }

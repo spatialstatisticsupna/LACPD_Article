@@ -1,5 +1,5 @@
 #' @export
-Re_tfpwmk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,history=FALSE,...){
+lacpd_bcpw <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,history=FALSE,...){
 
   if(anyNA(x)) stop("there is NA in your data")
 
@@ -15,7 +15,7 @@ Re_tfpwmk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,h
     out.list.mag <- list()
 
     for (i in 1:length(k)) {
-      out.pre <- Re_tfpwmk(x=x,m=m,k=k[i],blow=blow,bup=(1-blow),leave=leave,adjust=adjust,...)
+      out.pre <- lacpd_bcpw(x=x,m=m,k=k[i],blow=blow,bup=(1-blow),leave=leave,adjust=adjust,...)
       out.list.z[[i]] <- attr(out.pre,"zs")
       out.list.mag[[i]] <- attr(out.pre,"mags")
 
@@ -113,10 +113,12 @@ Re_tfpwmk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,h
                       mag=mag,
                       p=p)
 
-    class(out.final) <- c("list","re.tfpwmk")
+    class(out.final) <- c("list","lacpd.bcpw")
+
     attr(out.final,"zs") <- zs
     attr(out.final,"mags") <- mags
     attr(out.final,"ps") <- ps
+
 
     if(history){
       attr(out.final,"history") <- out.hist
@@ -135,6 +137,7 @@ Re_tfpwmk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,h
 
   low1 <- which(s==low)
   up1 <- which(s==up)
+
 
   if(k==2){
 
@@ -162,7 +165,7 @@ Re_tfpwmk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,h
           mag[j] <- abs(mean(znew[(floor(zlen/2)+1):zlen]) - mean(znew[1:floor(zlen/2)]))
         }
 
-        mk <- tfpwmk(znew)
+        mk <- bcpw(znew)
         zs[j] <- abs(as.vector(mk[1]))
 
       }
@@ -203,7 +206,7 @@ Re_tfpwmk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,h
           mag[j] <- abs(mean(znew[(floor(zlen/2)+1):zlen]) - mean(znew[1:floor(zlen/2)]))
         }
 
-        mk <- tfpwmk(znew)
+        mk <- bcpw(znew)
         zs[j] <- abs(as.vector(mk[1]))
 
       }
@@ -247,7 +250,7 @@ Re_tfpwmk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,h
           mag[j] <- abs(mean(znew[(floor(zlen/2)+1):zlen]) - mean(znew[1:floor(zlen/2)]))
         }
 
-        mk <- tfpwmk(znew)
+        mk <- bcpw(znew)
         zs[j] <- abs(as.vector(mk[1]))
 
       }
@@ -286,7 +289,7 @@ Re_tfpwmk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,h
         mag_m[j] <- abs(mean(znew[(floor(zlen/2)+1):zlen]) - mean(znew[1:floor(zlen/2)]))
       }
 
-      mk <- tfpwmk(znew)
+      mk <- bcpw(znew)
       zs.middle[j] <- abs(as.vector(mk[1]))
 
     }
@@ -313,7 +316,7 @@ Re_tfpwmk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,h
           mag[j] <- abs(mean(znew[(floor(zlen/2)+1):zlen]) - mean(znew[1:floor(zlen/2)]))
         }
 
-        mk <- tfpwmk(znew)
+        mk <- bcpw(znew)
         zs[j] <- abs(as.vector(mk[1]))
       }
       return(list(zs=zs[up1:length(s)],mag=mag[up1:length(s)]))
@@ -358,17 +361,15 @@ Re_tfpwmk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,h
                     mag=mag,
                     p=p)
 
-  class(out.final) <- c("list","re.tfpwmk")
+  class(out.final) <- c("list","lacpd.bcpw")
+
   attr(out.final,"zs") <- zs
   attr(out.final,"mags") <- mags
   attr(out.final,"ps") <- ps
+
 
   return(out.final)
 }
 
 #' @export
-print.re.tfpwmk <- function(x){
-  cat("Subsample tfpwmk \n");
-  cat("cp:", " ", paste0(x$cp), ", Z=",paste0(x$z),", magnitude=",paste0(x$mag),
-      ", p.value=",paste0(x$p),"\n");
 }

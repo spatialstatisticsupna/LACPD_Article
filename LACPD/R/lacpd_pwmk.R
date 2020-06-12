@@ -1,5 +1,5 @@
 #' @export
-Re_mmky <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,history=FALSE,...){
+lacpd_pwmk <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,history=FALSE,...){
 
   if(anyNA(x)) stop("there is NA in your data")
 
@@ -15,7 +15,7 @@ Re_mmky <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,his
     out.list.mag <- list()
 
     for (i in 1:length(k)) {
-      out.pre <- Re_mmky(x=x,m=m,k=k[i],blow=blow,bup=(1-blow),leave=leave,adjust=adjust,...)
+      out.pre <- lacpd_pwmk(x=x,m=m,k=k[i],blow=blow,bup=(1-blow),leave=leave,adjust=adjust,...)
       out.list.z[[i]] <- attr(out.pre,"zs")
       out.list.mag[[i]] <- attr(out.pre,"mags")
 
@@ -114,10 +114,11 @@ Re_mmky <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,his
                       mag=mag,
                       p=p)
 
-    class(out.final) <- c("list","re.mmky")
+    class(out.final) <- c("list","lacpd.pwmk")
     attr(out.final,"zs") <- zs
     attr(out.final,"mags") <- mags
     attr(out.final,"ps") <- ps
+
 
     if(history){
       attr(out.final,"history") <- out.hist
@@ -164,7 +165,7 @@ Re_mmky <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,his
           mag[j] <- abs(mean(znew[(floor(zlen/2)+1):zlen]) - mean(znew[1:floor(zlen/2)]))
         }
 
-        mk <- mmky(znew)
+        mk <- pwmk(znew)
         zs[j] <- abs(as.vector(mk[1]))
 
       }
@@ -205,7 +206,7 @@ Re_mmky <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,his
           mag[j] <- abs(mean(znew[(floor(zlen/2)+1):zlen]) - mean(znew[1:floor(zlen/2)]))
         }
 
-        mk <- mmky(znew)
+        mk <- pwmk(znew)
         zs[j] <- abs(as.vector(mk[1]))
 
       }
@@ -249,7 +250,7 @@ Re_mmky <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,his
           mag[j] <- abs(mean(znew[(floor(zlen/2)+1):zlen]) - mean(znew[1:floor(zlen/2)]))
         }
 
-        mk <- mmky(znew)
+        mk <- pwmk(znew)
         zs[j] <- abs(as.vector(mk[1]))
 
       }
@@ -288,7 +289,7 @@ Re_mmky <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,his
         mag_m[j] <- abs(mean(znew[(floor(zlen/2)+1):zlen]) - mean(znew[1:floor(zlen/2)]))
       }
 
-      mk <- mmky(znew)
+      mk <- pwmk(znew)
       zs.middle[j] <- abs(as.vector(mk[1]))
 
     }
@@ -315,7 +316,7 @@ Re_mmky <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,his
           mag[j] <- abs(mean(znew[(floor(zlen/2)+1):zlen]) - mean(znew[1:floor(zlen/2)]))
         }
 
-        mk <- mmky(znew)
+        mk <- pwmk(znew)
         zs[j] <- abs(as.vector(mk[1]))
       }
       return(list(zs=zs[up1:length(s)],mag=mag[up1:length(s)]))
@@ -335,6 +336,8 @@ Re_mmky <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,his
     mags <- c(mag.low,mag.middle,mag.up)
 
   }
+
+
 
 
   cp <- s[which.max(zs)]
@@ -360,17 +363,18 @@ Re_mmky <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,his
                     mag=mag,
                     p=p)
 
-  class(out.final) <- c("list","re.mmky")
+  class(out.final) <- c("list","lacpd.pwmk")
   attr(out.final,"zs") <- zs
   attr(out.final,"mags") <- mags
   attr(out.final,"ps") <- ps
+
 
   return(out.final)
 }
 
 #' @export
-print.re.mmky <- function(x){
-  cat("Subsample mmky \n");
-  cat("cp:", " ", paste0(x$cp), ", Z=",paste0(x$z),", magnitude=",paste0(x$mag),
-      ", p.value=",paste0(x$p),"\n");
+print.lacpd.pwmk <- function(x,round=5){
+  cat("LACPD pwmk \n");
+  cat("cp:", " ", paste0(x$cp), ", Z=",paste0(round(x$z,round)),", magnitude=",paste0(round(x$mag,round)),
+      ", p.value=",paste0(round(x$p,round)),"\n");
 }

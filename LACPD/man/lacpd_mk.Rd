@@ -1,17 +1,17 @@
-\name{Re_mmkh}
-\alias{Re_mmkh}
+\name{lacpd_mk}
+\alias{lacpd_mk}
 
 \title{
-Locally change-point detection using the mmkh approach
+Locally change-point detection using the Mann-Kendall test
 }
 
 \description{
-Locally change-point detection after accommodating the mmkh approach in LACPD procedure
+Locally change-point detection after accommodating the Mann-Kendall test in LACPD procedure
 }
 
 \usage{
-Re_mmkh(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE, adjust= FALSE,
-                          history=FALSE,...)
+lacpd_mk(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,
+                        history=FALSE,...)
 }
 
 \arguments{
@@ -45,7 +45,8 @@ arguments passed to \link[stats]{p.adjust}
 }
 
 \details{
-This technique accommodates the \link[modifiedmk]{mmkh} trend detection method in the LACPD procedure of Moradi et al. (2020) to look for potential change-points in the numerical vector x.
+
+This technique accommodates the \link[trend]{mk.test} trend detection method in the LACPD procedure of Moradi et al. (2020) to look for potential change-points in the numerical vector \code{x}.
 
 In the tails of \code{x}, since there are not enough data points before/after the target points, the method uses sub-sampling, wherein it moderates the effect of sub-sampling by iteration.
 
@@ -57,8 +58,8 @@ If \code{leave=TRUE}, the function removes the target point when checking for po
 If \code{adjust=TRUE}, methods susch as "holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr", "none" can be passed through function, e.g. method="BY".
 
 If \code{k} is a vector of numbers, then the function returns a result based on adaptive sliding windows which is an average result obtained from different windows.
-}
 
+}
 
 \author{
 Mehdi Moradi \email{m2.moradi@yahoo.com}, Manuel Montesino-SanMartin \email{manuel.montesino@unavarra.es}
@@ -97,7 +98,7 @@ attr(,"allps"): a list which retrieves the obtained p-values at the time-periods
 }
 
 \seealso{
-\link[modifiedmk]{mmkh}, \link[stats]{p.adjust}
+\link[trend]{mk.test}, \link[stats]{p.adjust}
 }
 
 \references{
@@ -106,7 +107,7 @@ Moradi, M., Montesino-SanMartin, M., Ugarte, M. D., and Militino, A. F. (2020). 
 
 \examples{
 x <- rnorm(100)
-Z <- Re_mmkh(x,m=50,k=c(3:5))
+Z <- lacpd_mk(x,m=50,k=c(3:5))
 plot(Z$s,attr(Z,"zs"),type="l",ylab = "Z",xlab = "time")
 plot(Z$s,attr(Z,"mags"),type="l",ylab = "Z",xlab = "time")
 }
