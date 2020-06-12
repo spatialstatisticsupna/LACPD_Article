@@ -70,7 +70,7 @@ Re_mmky <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,his
         for (i in 1:nrow(hist)) {
           rn[i] <- paste(k[h],"-",k[i+h])
         }
-        colnames(hist) <- c("change-point","magnitude","Z","p-value")
+        colnames(hist) <- c("change-point","magnitude","Z","p.value")
         rownames(hist) <- rn
 
         names(allps) <- names(allmags) <- names(allzs) <- rn
