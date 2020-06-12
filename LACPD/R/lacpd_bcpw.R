@@ -372,4 +372,8 @@ lacpd_bcpw <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,
 }
 
 #' @export
+print.lacpd.bcpw <- function(x,round=5){
+  cat("LACPD bcpw \n");
+  cat("cp:", " ", paste0(x$cp), ", Z=",paste0(round(x$z,round)),", magnitude=",paste0(round(x$mag,round)),
+      ", p.value=",paste0(round(x$p,round)),"\n");
 }
