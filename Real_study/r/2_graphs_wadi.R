@@ -233,6 +233,10 @@ map1 <- tm_shape(fields[[1]]$pval,
             legend.text.size = 2,
             legend.title.size = 4,
             legend.format = list(text.separator = "-"),
+            main.title = "Field 1",
+            main.title.size = 3,
+            main.title.position = "center",
+            main.title.fontface = 2,
             title = "p-value",
             title.size = 4,
             title.position = c("left", "top"),
@@ -254,7 +258,11 @@ map2 <- tm_shape(fields[[2]]$pval,
           y = mark_coor[[2]]$y,
           alpha = 0,
           labels.size = 3) +
-  tm_layout(asp = 1)
+  tm_layout(asp = 1,
+            main.title = "Field 2",
+            main.title.size = 3,
+            main.title.position = "center",
+            main.title.fontface = 2)
 
 # third field
 map3 <- tm_shape(fields[[3]]$pval,
@@ -272,7 +280,11 @@ map3 <- tm_shape(fields[[3]]$pval,
           y = mark_coor[[3]]$y,
           alpha = 0,
           labels.size = 3) +
-  tm_layout(asp = 1)
+  tm_layout(asp = 1,
+            main.title = "Field 3",
+            main.title.size = 3,
+            main.title.position = "center",
+            main.title.fontface = 2)
 
 # save the output
 out.file <- file.path(out.dir, "pval_sp.png")

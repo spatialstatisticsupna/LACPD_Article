@@ -14,6 +14,14 @@ _"A locally trend-based change-point detection technique"_
 
 # Package installation
 
+```
+# remote package
+library(remote)
+
+# install from github
+instal_github(mmontesinosanmartin/change_point/LACPD)
+
+```
 
 # Simulations 
 
@@ -26,7 +34,7 @@ The real case study aims to detect the transformation of bare land into cultivat
 
 <p align="center">
   <img align="center" width="400" src="./Real_study/graphs/wadi_as_sirham.png" alt="Itoiz reservoir">
-  <p align="center"> Figure 1: Wadi As-Sirham valley in Saudi Arabia. The graph shows the maximum value composite (MVC) for the region in 2019 from Landsat 7-8 scenes. The fields used in the analysis are framed by red rectangles: Field 1 is located on top, Field 2 is in the middle-left hand side, and the Field 3 is placed at the bottom-right. The smaller graph on the top-right corner shows the location of the valley within Saudi Arabia. </p>
+  <p align="center"> Figure 1: Wadi As-Sirham valley in Saudi Arabia. The graph shows the maximum value composite (MVC) for the region in 2019 from Landsat 8 scenes. The fields used in the analysis are framed by red rectangles: Field 1 is located on top, Field 2 is in the middle-left hand side, and the Field 3 is placed at the bottom-right. The smaller graph on the top-right corner shows the location of the valley within Saudi Arabia. </p>
 </p>
 
 The data is available

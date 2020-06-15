@@ -48,7 +48,7 @@ this.adj <- "BY"
 for(i in 1:n.files){
   
   # load the dataset
-  f.i <- file.path(root.git, root.dir, files[i])
+  f.i <- file.path(root.git, root.dir, paste0(files[i], token))
   load(url(f.i))
 
   # result
