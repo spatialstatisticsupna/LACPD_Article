@@ -1,4 +1,4 @@
-# Supplementary material: A locally trend-based change-point detection technique
+# Online Resource 1: Locally adaptive change-point detection with applications to remote sensing and land use changes
 
 
 This repository provides the data-sets and R codes used in the analysis: 
