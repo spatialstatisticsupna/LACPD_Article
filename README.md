@@ -3,7 +3,7 @@
 
 This repository provides the corresponding data-sets and R codes of
 _"Locally adaptive change-point detection with applications to remote sensing and land use changes"_
-by Moradi et al., (2020).
+by Moradi et al. (2020).
 
 ## Table of contents
 
