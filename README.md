@@ -34,7 +34,7 @@ The real case study aims to detect the transformation of bare land into cultivat
 
 <p align="center">
   <img align="center" width="400" src="./Real_study/graphs/wadi_as_sirham.png" alt="Itoiz reservoir">
-  <p align="center"> Figure 1: Wadi As-Sirham valley in Saudi Arabia. The graph shows the maximum value composite (MVC) for the region in 2019 from Landsat 8 scenes. The fields used in the analysis are framed by red rectangles: Field 1 is located on top, Field 2 is in the middle-left hand side, and the Field 3 is placed at the bottom-right. The smaller graph on the top-right corner shows the location of the valley within Saudi Arabia. </p>
+  <p align="center"> Figure 1: Wadi As-Sirham valley in Saudi Arabia. The graph shows the maximum value composite (MVC) for the region in 2019 from Landsat 8 scenes. The crop fields involved in the analysis are framed by red rectangles: Fields 1, 2, and 3 are located in the north, south-east, and west in the region of interest. The smaller graph on the top-right corner shows the location of the valley within Saudi Arabia. </p>
 </p>
 
 The data is available
@@ -67,7 +67,7 @@ The folder contains the following sequence of scripts:
 Holben, B.N. (1986). _Characteristics of maximum-value composite images from temporal AVHRR data_.
 International journal of remote sensing, __7(11)__, 1417-1434 pp. Taylor $\&$ Francis.
 
-U.S. Geological Survey (2020). _Landsat Level- 2 Surface Reflectance Science Product_
+U.S. Geological Survey (2020). _Landsat Level- 2 Surface Reflectance Science Product_.
 __URL__:https://www.usgs.gov/land-resources/nli/landsat/landsat-collection-1-surface-reflectance
 
 Moradi et al. (2020). _Locally adaptive change-point detection with applications to remote sensing and land use changes_. Computer and Statistics. (under review).
