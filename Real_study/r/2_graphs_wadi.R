@@ -158,6 +158,7 @@ auto1 <- tm_shape(fields[[1]]$auto,
           alpha = 0,
           labels.size = 3) + 
   tm_scale_bar(position = c("right", "bottom"),
+               breaks = c(0.,0.25,0.5),
                width = 0.3,
                text.size = 4) + 
   tm_compass(position = c("right", "top"),
@@ -173,7 +174,10 @@ auto2 <- tm_shape(fields[[2]]$auto,
   tm_raster(legend.show = FALSE,
             style = "cont",
             breaks = seq(-1,1,0.2),
-            palette = rev(brewer.pal(6,"RdBu"))) + 
+            palette = rev(brewer.pal(6,"RdBu"))) +
+  tm_scale_bar(position = c("right", "bottom"),
+               breaks = c(0.,0.25,0.5),
+               text.size = 4) + 
   tm_grid(labels.show = c(TRUE,TRUE),
           x = mark_coor[[2]]$x,
           y = mark_coor[[2]]$y,
@@ -189,6 +193,9 @@ auto3 <- tm_shape(fields[[3]]$auto,
             breaks = seq(-1,1,0.2),
             palette = rev(brewer.pal(6,"RdBu")),
             legend.show = FALSE) + 
+  tm_scale_bar(position = c("right", "bottom"),
+               breaks = c(0.,0.25,0.5),
+               text.size = 4) + 
   tm_grid(labels.show = c(TRUE,TRUE),
           x = mark_coor[[3]]$x,
           y = mark_coor[[3]]$y,
