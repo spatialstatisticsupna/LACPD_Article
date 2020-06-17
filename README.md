@@ -68,6 +68,6 @@ Holben, B.N. (1986). _Characteristics of maximum-value composite images from tem
 International journal of remote sensing, __7(11)__, 1417-1434 pp. Taylor $\&$ Francis.
 
 U.S. Geological Survey (2020). _Landsat Level- 2 Surface Reflectance Science Product_
-\url{https://www.usgs.gov/land-resources/nli/landsat/landsat-collection-1-surface-reflectance}
+__URL__:https://www.usgs.gov/land-resources/nli/landsat/landsat-collection-1-surface-reflectance
 
 Moradi et al. (2020). _A locally trend-based change-point detection technique_. Computer and Statistics. (under review).
