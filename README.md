@@ -34,7 +34,7 @@ The real case study aims to detect the transformation of bare land into cultivat
 
 <p align="center">
   <img align="center" width="400" src="./Real_study/graphs/wadi_as_sirham.png" alt="Itoiz reservoir">
-  <p align="center"> Figure 1: Wadi As-Sirham valley in Saudi Arabia. The graph shows the maximum value composite (MVC) for the region in 2019 from Landsat 8 scenes. The crop fields involved in the analysis are framed by red rectangles: Fields 1, 2, and 3 are located in the north, south-east, and west in the region of interest respectively. The smaller graph on the top-right corner shows the location of the valley within Saudi Arabia. </p>
+  <p align="center"> Figure 1: Wadi As-Sirham valley in Saudi Arabia. The map shows the maximum value composite (MVC) for the region in 2019 from Landsat 8 scenes. The crop fields involved in the analysis are framed by red rectangles: Fields 1, 2, and 3 are located in the north, south-east, and west in the region of interest respectively. The smaller graph on the top-right corner shows the location of the valley within Saudi Arabia. The graph was produced with the tmap package (Tennekes. 2018).</p>
 </p>
 
 The data is available
@@ -67,7 +67,10 @@ The folder contains the following sequence of scripts:
 Holben, B.N. (1986). _Characteristics of maximum-value composite images from temporal AVHRR data_.
 International journal of remote sensing, __7(11)__, 1417-1434 pp. Taylor $\&$ Francis.
 
-U.S. Geological Survey (2020). _Landsat Level- 2 Surface Reflectance Science Product_.
-__URL__:https://www.usgs.gov/land-resources/nli/landsat/landsat-collection-1-surface-reflectance
-
 Moradi et al. (2020). _Locally adaptive change-point detection with applications to remote sensing and land use changes_. Submitted for  publication.
+
+Tennekes M (2018). _tmap: Thematic Maps in R._ Journal of Statistical Software, __84(6)__, 1-39. doi: 10.18637/jss.v084.i06 (URL:https://doi.org/10.18637/jss.v084.i06).
+
+U.S. Geological Survey (2020). _Landsat Level- 2 Surface Reflectance Science Product_. (URL:https://www.usgs.gov/land-resources/nli/landsat/landsat-collection-1-surface-reflectance)
+
+
