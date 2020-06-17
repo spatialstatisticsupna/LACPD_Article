@@ -1,9 +1,9 @@
 # Online Resource 1: Locally adaptive change-point detection with applications to remote sensing and land use changes
 
 
-This repository provides the data-sets and R codes used in the analysis: 
+This repository provides the corresponding data-sets and R codes of
 _"Locally adaptive change-point detection with applications to remote sensing and land use changes"_
-(Moradi et al., 2020).
+by Moradi et al., (2020).
 
 ## Table of contents
 
@@ -70,4 +70,4 @@ International journal of remote sensing, __7(11)__, 1417-1434 pp. Taylor $\&$ Fr
 U.S. Geological Survey (2020). _Landsat Level- 2 Surface Reflectance Science Product_.
 __URL__:https://www.usgs.gov/land-resources/nli/landsat/landsat-collection-1-surface-reflectance
 
-Moradi et al. (2020). _Locally adaptive change-point detection with applications to remote sensing and land use changes_. Computer and Statistics. (under review).
+Moradi et al. (2020). _Locally adaptive change-point detection with applications to remote sensing and land use changes_. Submitted for  publication.
