@@ -8,7 +8,7 @@ by Moradi et al. (2020).
 ## Table of contents
 
  - [Package installation](#Package-installation)
- - [Simulations](#Simulations)
+ - [Simulation study](#Simulations)
  - [Real case-study](#Real-case-study)
  - [References](#References)
 
@@ -23,8 +23,16 @@ instal_github(mmontesinosanmartin/change_point/LACPD)
 
 ```
 
-# Simulations 
+# Simulation study 
+This section is devoted to provide the R codes to reproduce the results of the simulation study presented in Moradi et al. (2020).
 
+Click [here](https://github.com/mmontesinosanmartin/changepoint_article/tree/master/SImulation%20study/Normal%20data) to access the R codes to reproduce the results of Section 4.1, in Moradi et al. (2020), including Tables 1,3,4 and Figure 2.
+
+
+Click [here](https://github.com/mmontesinosanmartin/changepoint_article/tree/master/SImulation%20study/AR%20data) to access the R codes to reproduce the results of Section 4.2, in Moradi et al. (2020), including Tables 2,5,6 and Figure 3. 
+
+
+Click [here](https://github.com/mmontesinosanmartin/changepoint_article/tree/master/SImulation%20study/Multiple%20change-point) to access the R codes to reproduce the results of Section 4.3, in Moradi et al. (2020), including Figure 4. 
 
 # Real case-study
 
