@@ -1,6 +1,6 @@
 Package: LACPD
 Type: Package
-Title: Locally Adaptive change-point detection
+Title: Locally adaptive change-point detection
 Version: 0.2.0
 Author: Authors@R: c(person("Mehdi", "Moradi", email = "m2.moradi@yahoo.com",
   role = c("aut", "cre")),
