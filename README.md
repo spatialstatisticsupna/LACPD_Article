@@ -15,7 +15,7 @@ by Moradi et al. (2020).
 # Package installation
 
 ```
-# remote package
+# devtools package
 library(devtools)
 
 # install from github
