@@ -22,9 +22,14 @@ library(devtools)
 install_github("mmontesinosanmartin/changepoint_article/LACPD")
 ```
 
-After the installation, close and re-open `RStudio`.
+After installing, close and re-open `RStudio`. Load the package with:
+
+```
+library("LACPD")
+```
 
 # Simulation study 
+
 This section is devoted to provide the R codes to reproduce the results of the simulation study presented in Moradi et al. (2020).
 
 Click [here](https://github.com/mmontesinosanmartin/changepoint_article/tree/master/SImulation%20study/Normal%20data) to access the R codes to reproduce the results of Section 4.1, in Moradi et al. (2020), including Tables 1,3,4 and Figure 2.
