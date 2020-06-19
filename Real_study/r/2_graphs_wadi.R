@@ -1,5 +1,6 @@
 ###############################################################################
-# R CODE: Locally adaptive change point detection
+# R CODE: Locally adaptive change-point detection with applications to remote
+# sensing and land use changes
 ###############################################################################
 # Moradi, M., Montesino-SanMartin, M., Ugarte, M.D., Militino, A.F.
 # Public University of Navarre
@@ -28,33 +29,42 @@ library(grid)
 # DATASET
 ###############################################################################
 
-# directory
-root.dir <- "D:/change_point/wadir_as_shiram/results"
-out.dir  <- "D:/change_point/wadir_as_shiram/graphs"
-  
-# files available
-resl.fil <- list.files(root.dir, full.names = TRUE)
+# Inputs (from GitHub)
+root <- "https://raw.githubusercontent.com/mmontesinosanmartin/changepoint_article/"
+sel.fil <- list()
+sel.fil[[1]] <- file.path(root,"master/Real_study/results/field1_7_0210_100_BY.RData")
+sel.fil[[2]] <- file.path(root,"master/Real_study/results/field2_21_0210_100_BY.RData")
+sel.fil[[3]] <- file.path(root,"master/Real_study/results/field3_29_0210_100_BY.RData")
 
-# file selection
-sel.fil <- data.frame(field1 = 7,
-                      field2 = 6,
-                      field3 = 13)
+# number of files
 num.fil <- length(sel.fil)
 
 # field data frames
 fields <- list()
 for(i in 1:num.fil){
-  fil <- resl.fil[unlist(sel.fil[i])]
+  
+  # Load dataset
+  fil <- sel.fil[[i]]
   fil.nm <- gsub(".RData", "", basename(fil))
-  load(fil)
+  load(url(fil))
+  
   fields[[i]]      <- list()
+  # Field ID
   fields[[i]]$id   <- strsplit(fil.nm, "_")[[1]][1]
+  # Actual moment of change
   fields[[i]]$acp  <- as.numeric(strsplit(fil.nm, "_")[[1]][2]) + 1985
+  # Field frame
   fields[[i]]$roi  <- sample.roi
+  # Results
   fields[[i]]$resl <- resl
+  # Images
   fields[[i]]$vals <- sample.val
+  # Not-na raster indices
   fields[[i]]$nna  <- which(!is.na(sample.val[[1]][]))
 }
+
+# Select your own output directory
+out.dir  <- "./"
 
 ###############################################################################
 # RESULTS (as images)
@@ -137,12 +147,12 @@ for(i in 1:num.fil){
 ###############################################################################
 
 # Graphical parameters
-bbox_plot <-list(field2 = c(xmin = 38.13170, ymin = 30.28560, xmax = 38.15630, ymax = 30.30645),
-                 field14 = c(xmin = 38.57768, ymin = 29.64759, xmax = 38.60205, ymax = 29.66662),
-                 field8 = c(xmin =38.06830, ymin = 29.84690, xmax = 38.09200, ymax = 29.87100))
-mark_coor <- list(field2 = list(x =c(38.14,38.15), y = c(30.29,30.30)),
-                  field14 = list(x = c(38.58,38.59,38.60),y = c(29.65,29.66)),
-                  field8 = list(x =c(38.075,38.085), y = c(29.855,29.865)))
+bbox_plot <-list(field1 = c(xmin = 38.13170, ymin = 30.28560, xmax = 38.15630, ymax = 30.30645),
+                 field2 = c(xmin = 38.57768, ymin = 29.64759, xmax = 38.60205, ymax = 29.66662),
+                 field3 = c(xmin =38.06830, ymin = 29.84690, xmax = 38.09200, ymax = 29.87100))
+mark_coor <- list(field1 = list(x =c(38.14,38.15), y = c(30.29,30.30)),
+                  field2 = list(x = c(38.58,38.59,38.60),y = c(29.65,29.66)),
+                  field3 = list(x =c(38.075,38.085), y = c(29.855,29.865)))
 
 # first field
 auto1 <- tm_shape(fields[[1]]$auto,
@@ -515,20 +525,10 @@ graph
 dev.off()
 
 ###############################################################################
-# TEMPORAL EVALUATION
+# DETAILED GRAPHS
 ###############################################################################
 
-# helper function
-create_zones <- function(polygn){
-  pol <- st_coordinates(polygn)
-  rect <- leaflet() %>%
-    addProviderTiles(providers$Esri.WorldImagery) %>%
-    addPolygons(lng = pol[,"X"], lat = pol[,"Y"], color = NA) %>%
-    editMap()
-  st_coordinates(rect$finished)
-}
-
-# first field
+# field 1
 # locations
 crop <- data.frame(X = c(38.14057, 38.15091, 38.14809, 38.13787, 38.14057),
                    Y = c(30.30184, 30.29940, 30.29038, 30.29308, 30.30184))
@@ -565,7 +565,7 @@ mapshot(map_detail,
         remove_controls = c("zoomControl"))
 
 
-# second field
+# field 2
 # locations
 crop <- data.frame(X = c(38.58462, 38.57769, 38.59482, 38.60224, 38.58462),
                    Y = c(29.64760, 29.65438, 29.66661, 29.65930, 29.64760))
@@ -613,7 +613,7 @@ mapshot(map_detail2,
         file = out.file,
         remove_controls = c("zoomControl"))
 
-# third field
+# field 3
 # locations
 crop <- data.frame(X = c(38.07441, 38.08772, 38.08771, 38.07440, 38.07441),
                    Y = c(29.86838, 29.86839, 29.85165, 29.85164, 29.86838))
