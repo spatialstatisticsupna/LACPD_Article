@@ -4,9 +4,12 @@ Title: Locally Adaptive change-point detection
 Version: 0.2.0
 Author: Authors@R: c(person("Mehdi", "Moradi", email = "m2.moradi@yahoo.com",
   role = c("aut", "cre")),
-  person("Manuel", "Montesino-SanMartin", role = "ctb"))
+  person("Manuel", "Montesino-SanMartin", role = "ctb"),
+  person("M. Dolores", "Ugarte", role = "ctb"),
+  person("Ana F.", "Militino", role = "ctb")
+  )
 Maintainer: Mehdi Moradi <m2.moradi@yahoo.com>
-Description: Locally adaptive change-point detection.
+Description: This package provides functions to detect abrupt changes in a set of time-ordered numerical observations using the LACPD technique.
 Depends: R (>= 3.3.0), trend, modifiedmk
 License: GPL (>= 2)
 Encoding: UTF-8
