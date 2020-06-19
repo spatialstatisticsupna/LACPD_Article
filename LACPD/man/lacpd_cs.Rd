@@ -83,8 +83,8 @@ If \code{adjust=TRUE}, methods susch as "holm", "hochberg", "hommel", "bonferron
 If \code{k} is a vector of numbers, then the function returns a result based on adaptive sliding windows which is an average result obtained from different windows.
 }
 \examples{
-x <- rnorm(100)
-Z <- lacpd_cs(x,m=50,k=c(3:5))
+x <- rnorm(50)
+Z <- lacpd_cs(x,m=10,k=3)
 plot(Z$s,attr(Z,"zs"),type="l",ylab = "Z",xlab = "time")
 plot(Z$s,attr(Z,"mags"),type="l",ylab = "Z",xlab = "time")
 }

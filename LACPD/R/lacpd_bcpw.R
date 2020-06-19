@@ -70,16 +70,16 @@
 #' \link[modifiedmk]{bcpw}, \link[stats]{p.adjust}
 #'
 #' @examples
-#' x <- rnorm(100)
-#' Z <- lacpd_bcpw(x,m=50,k=c(3:5))
+#' x <- rnorm(50)
+#' Z <- lacpd_bcpw(x,m=10,k=3)
 #' plot(Z$s,attr(Z,"zs"),type="l",ylab = "Z",xlab = "time")
 #' plot(Z$s,attr(Z,"mags"),type="l",ylab = "Z",xlab = "time")
 
 
 
 
-
-
+#' @import modifiedmk
+#' @import stats
 #' @export
 lacpd_bcpw <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,history=FALSE,...){
 
@@ -454,7 +454,7 @@ lacpd_bcpw <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,
 }
 
 #' @export
-print.lacpd.bcpw <- function(x,round=5){
+print.lacpd.bcpw <- function(x,round=5,...){
   cat("LACPD bcpw \n");
   cat("cp:", " ", paste0(x$cp), ", Z=",paste0(round(x$z,round)),", magnitude=",paste0(round(x$mag,round)),
       ", p.value=",paste0(round(x$p,round)),"\n");
