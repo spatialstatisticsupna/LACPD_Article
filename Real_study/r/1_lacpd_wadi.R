@@ -46,6 +46,8 @@ this.m <- 100
 # adjusting method
 this.adj <- "BY"
 
+# Check running times
+t.strt <- Sys.time()
 # Run: for each file
 for(i in 1:n.files){
   
@@ -85,3 +87,7 @@ for(i in 1:n.files){
        resl,       # All results
        file = out.path)
 }
+
+# Total running time
+Sys.time() - t.strt
+# Time difference of 1.734562 hours

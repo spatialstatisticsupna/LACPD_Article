@@ -91,7 +91,7 @@ for(i in 1:num.fil){
 for(i in 1:num.fil){
   pval.img <- raster(fields[[i]]$vals)
   pval.img[][fields[[i]]$nna] <- unlist(lapply(fields[[i]]$resl, function(x){
-    attr(x, "hist")[conf,"p-value"]
+    attr(x, "hist")[conf,"p.value"]
   }))
   names(pval.img) <- conf.nms[conf]
   fields[[i]]$pval <- pval.img

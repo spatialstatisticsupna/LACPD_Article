@@ -73,6 +73,7 @@ The analysis and results of the real case study can be reproduced using the
 The folder contains the following sequence of scripts:
 
   - `1_lacpd_wadi.R`: applies the LACPD procedure (Moradi et al., 2020) to the time-series of NDVI images.
+  Running time: 1 hour and 45 minutes (approx.) with an Intel(R) Core(TM) i7-4710HQ CPU @ 2.50GHz.
   - `2_graphs_wadi.R`: collects, organizes, and represents the results of the analysis.
 
 
@@ -86,5 +87,3 @@ Moradi et al. (2020). _Locally adaptive change-point detection with applications
 Tennekes M (2018). _tmap: Thematic Maps in R._ Journal of Statistical Software, __84(6)__, 1-39. doi: 10.18637/jss.v084.i06 (URL:https://doi.org/10.18637/jss.v084.i06).
 
 U.S. Geological Survey (2020). _Landsat Level- 2 Surface Reflectance Science Product_. (URL:https://www.usgs.gov/land-resources/nli/landsat/landsat-collection-1-surface-reflectance)
-
-
