@@ -10,26 +10,28 @@
 # PACKAGE
 ###############################################################################
 
-# install
+# devtools package
 # library(devtools)
-# install.packages()
+
+# install from github
+# install_github("mmontesinosanmartin/changepoint_article/LACPD")
 
 # load
-library(Scp)
+library(LACPD)
 
 ###############################################################################
 # DATA PATHS
 ###############################################################################
 
 # inputs
-root.git <- "https://raw.githubusercontent.com/mmontesinosanmartin/changepoint_article"
+root.git <- "https://raw.githubusercontent.com/mmontesinosanmartin/changepoint_article/"
 root.dir <- "master/Real_study/data"
 files <- c("field1_7.RData",
            "field2_21.RData",
            "field3_29.RData")
 n.files <- length(files)
 
-# outputs
+# output directory (select your own)
 out.dir <- "./"
 
 ###############################################################################
@@ -48,7 +50,7 @@ this.adj <- "BY"
 for(i in 1:n.files){
   
   # load the dataset
-  f.i <- file.path(root.git, root.dir, paste0(files[i], token))
+  f.i <- file.path(root.git, root.dir, paste0(files[i]))
   load(url(f.i))
 
   # result
@@ -65,7 +67,7 @@ for(i in 1:n.files){
     if (p %% 10 == 0 & p > 0) print(paste0(p, "%"))
     
     # run the analysis
-    resl[[j]] <- Re_mk(x = x,
+    resl[[j]] <- lacpd_mk(x = x,
                        k = eval(parse(text=this.k)),
                        m = this.m,
                        adjust = TRUE,
