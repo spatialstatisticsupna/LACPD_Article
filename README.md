@@ -16,12 +16,13 @@ by Moradi et al. (2020).
 
 ```
 # remote package
-library(remote)
+library(devtools)
 
 # install from github
-instal_github(mmontesinosanmartin/change_point/LACPD)
-
+install_github("mmontesinosanmartin/changepoint_article/LACPD")
 ```
+
+After the installation, close and re-open `RStudio`.
 
 # Simulation study 
 This section is devoted to provide the R codes to reproduce the results of the simulation study presented in Moradi et al. (2020).
