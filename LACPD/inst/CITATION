@@ -1,0 +1,23 @@
+citHeader("To cite LACPD in publications, please use:")
+
+citEntry(entry = "manual",
+  author = "Mehdi Moradi, Manuel Montesino-SanMartin, M. Dolores Ugarte, and Ana F. Militino",
+  title = "LACPD: Locally adaptive change-point detection",
+  publisher = "",
+  year = "2020",
+  url = "",
+  textVersion = "Moradi, M., Montesino-SanMartin, M., Ugarte, M.D., and Militino, A.F. (2020) LACPD: Locally adaptive change-point detection"
+)
+
+citEntry(entry = "article",
+  author = "Moradi, M., Montesino-SanMartin, M., Ugarte, M.D., and Militino, A.F.",
+  title = "Locally adaptive change-point detection with applications to remote sensing and land use changes",
+  journal="Submitted for publication",
+  volume="",
+  number="",
+  pages="",
+  publisher = "",
+  year = "2020",
+  url = "",
+  textVersion = "Moradi, M., Montesino-SanMartin, M., Ugarte, M.D., and Militino, A.F. (2020) Locally adaptive change-point detection with applications to remote sensing and land use changes"
+)
