@@ -19,7 +19,7 @@ by Moradi et al. (2020).
 library(devtools)
 
 # install from github
-install_github("mmontesinosanmartin/LACPD_Article/LACPD")
+install_github("spatialstatisticsupna/LACPD_Article/LACPD")
 ```
 
 After installing, close and re-open `RStudio`. Load the package with:
