@@ -14,7 +14,7 @@
 # library(devtools)
 
 # install from github
-# install_github("mmontesinosanmartin/changepoint_article/LACPD")
+# install_github("mmontesinosanmartin/LACPD_Article/LACPD")
 
 # load
 library(LACPD)
