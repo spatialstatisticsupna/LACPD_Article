@@ -68,7 +68,7 @@ Each `.RData` contains:
 ## R Code
 
 The analysis and results of the real case study can be reproduced using the
-`R` code avialable 
+`R` code available 
 [here](https://github.com/mmontesinosanmartin/changepoint_article/tree/master/Real_study/r).
 The folder contains the following sequence of scripts:
 
