@@ -89,3 +89,40 @@ sum(unlist(FP.pettitt[,2])<0.05)/length(x)
 # 1
 round(mean(abs(unlist(FP.pettitt[,1])-80)),3)
 # [1] 0.566
+
+
+FP.mk <- lapply(X=1:length(x), function(i){
+  if(i<length(x)) {
+    cat(paste(i),",")
+    flush.console()
+  } else {
+    cat(paste(i),"\n")
+    flush.console()
+  } 
+  
+  y <- c(x[[i]][1:80],x[[i]][81:168]+2)
+  R <- mk.test(y)
+  return(R$p.value)
+})
+
+
+sum(unlist(FP.mk)<0.05)/length(x)
+# [1] 1
+
+
+FP.cs <- lapply(X=1:length(x), function(i){
+  if(i<length(x)) {
+    cat(paste(i),",")
+    flush.console()
+  } else {
+    cat(paste(i),"\n")
+    flush.console()
+  } 
+  y <- c(x[[i]][1:80],x[[i]][81:168]+2)
+  R <- cs.test(y)
+  return(R$p.value)
+})
+
+
+sum(unlist(FP.cs)<0.05)/length(x)
+# [1] 1
