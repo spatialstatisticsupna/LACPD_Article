@@ -76,3 +76,37 @@ FP.pettitt <- do.call(rbind,FP.pettitt)
 
 sum(unlist(FP.pettitt[,2])<0.05)/length(x)
 # 0.45
+
+
+FP.mk <- lapply(X=1:length(x), function(i){
+  if(i<length(x)) {
+    cat(paste(i),",")
+    flush.console()
+  } else {
+    cat(paste(i),"\n")
+    flush.console()
+  } 
+  R <- mk.test(x[[i]])
+  return(R$p.value)
+})
+
+
+sum(unlist(FP.mk)<0.05)/length(x)
+# [1] 0.28
+
+
+FP.cs <- lapply(X=1:length(x), function(i){
+  if(i<length(x)) {
+    cat(paste(i),",")
+    flush.console()
+  } else {
+    cat(paste(i),"\n")
+    flush.console()
+  } 
+  R <- cs.test(x[[i]])
+  return(R$p.value)
+})
+
+
+sum(unlist(FP.cs)<0.05)/length(x)
+# [1] 0.214
