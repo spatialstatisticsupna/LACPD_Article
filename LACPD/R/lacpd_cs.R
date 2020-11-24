@@ -94,10 +94,16 @@ lacpd_cs <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,hi
     out.list.z <- list()
     out.list.mag <- list()
 
+    if(history){ hist1 <- matrix(ncol = 4,nrow = length(k)) }
+
     for (i in 1:length(k)) {
       out.pre <- lacpd_cs(x=x,m=m,k=k[i],blow=blow,bup=(1-blow),leave=leave,adjust=adjust,...)
       out.list.z[[i]] <- attr(out.pre,"zs")
       out.list.mag[[i]] <- attr(out.pre,"mags")
+
+
+      if(history){hist1[i,] <- c(out.pre$cp,out.pre$mag,out.pre$z,out.pre$p)}
+
 
     }
     out.list.z <- do.call(rbind,out.list.z)
@@ -112,6 +118,14 @@ lacpd_cs <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,hi
       out.hist.ps <- list()
       out.hist.mags <- list()
       out.hist <- list()
+
+
+      rn1 <- c()
+      for (i in 1:nrow(hist1)) {
+        rn1[i] <- paste(k[i])
+      }
+      colnames(hist1) <- c("change-point","magnitude","Z","p.value")
+      rownames(hist1) <- rn1
 
       for (h in 1:(nrow(out.list.z)-1)) {
 
@@ -174,6 +188,9 @@ lacpd_cs <- function(x,m=1,k=2,blow=0.1,bup=(1-blow),leave=FALSE,adjust=FALSE,hi
     cp <- s[which.max(zs)]
     mag <- mags[which.max(zs)]
     z <- max(zs)
+
+    if(history){ out.hist <- rbind(hist1,out.hist)}
+
 
     if(adjust){
       ps <- p.adjust(unlist(lapply(X=1:length(zs), function(j){
